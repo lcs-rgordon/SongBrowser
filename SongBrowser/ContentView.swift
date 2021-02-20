@@ -32,6 +32,11 @@ struct ContentView: View {
                 
                 Spacer()
                 
+            } else {
+                
+                // For now, show nothing when a search is active
+                Spacer()
+                
             }
            
         }
