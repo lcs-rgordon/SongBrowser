@@ -12,13 +12,12 @@ import SwiftUI
 
 struct AudioPlayerView: View {
     
-    @State var audioPlayer: AVAudioPlayer!
+    @State var audioPlayer: AVPlayer = AVPlayer()
+    var urlOfSongToPlay: String
     
     var body: some View {
         
         VStack {
-            
-            Text("Play").font(.system(size: 45)).font(.largeTitle)
             
             HStack {
                 
@@ -47,8 +46,22 @@ struct AudioPlayerView: View {
             
         }
         .onAppear {
-            let sound = Bundle.main.path(forResource: "song", ofType: "mp3")
-            self.audioPlayer = try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+            
+            // Create a URL instance from the preview URL
+            let url = URL(string: urlOfSongToPlay)!
+            
+            // Make an instance of the AVPlayerItem class
+            let playerItem = AVPlayerItem(url: url)
+            
+            // Set the player
+            audioPlayer = AVPlayer(playerItem: playerItem)
+            
+            // Set the volume
+            audioPlayer.volume = 0.5
+            
+        }
+        .onDisappear() {
+            audioPlayer.pause()
         }
     }
     
@@ -56,6 +69,6 @@ struct AudioPlayerView: View {
 
 struct AudioPlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        AudioPlayerView()
+        AudioPlayerView(urlOfSongToPlay: exampleSong.previewUrl)
     }
 }

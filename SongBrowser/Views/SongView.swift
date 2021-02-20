@@ -20,7 +20,9 @@ struct SongView: View {
             
             Text(song.artistName)
                 .font(.subheadline)
-            
+
+            AudioPlayerView(urlOfSongToPlay: song.previewUrl)
+
             Spacer()
                 .frame(maxWidth: .infinity)
             
