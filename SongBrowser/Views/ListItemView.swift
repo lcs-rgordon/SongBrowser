@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ListItem: View {
+struct ListItemView: View {
     
     var song: Song
     
@@ -25,8 +25,8 @@ struct ListItem: View {
     }
 }
 
-struct ListItem_Previews: PreviewProvider {
+struct ListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ListItem(song: exampleSong)
+        ListItemView(song: exampleSong)
     }
 }

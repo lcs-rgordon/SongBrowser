@@ -43,7 +43,7 @@ struct ContentView: View {
                     List(songs, id: \.trackId) { currentSong in
                         
                         NavigationLink(destination: SongView(song: currentSong)) {
-                            ListItem(song: currentSong)
+                            ListItemView(song: currentSong)
                         }
                         
                     }

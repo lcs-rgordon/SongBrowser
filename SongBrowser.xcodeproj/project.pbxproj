@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E5164F725E1413900618280 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5164F625E1413900618280 /* ListItem.swift */; };
+		0E5164F725E1413900618280 /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5164F625E1413900618280 /* ListItemView.swift */; };
 		0E5164FA25E142B000618280 /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5164F925E142B000618280 /* SongView.swift */; };
 		0ECE5EA725E12C5C004CB788 /* SongBrowserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE5EA625E12C5C004CB788 /* SongBrowserApp.swift */; };
 		0ECE5EA925E12C5C004CB788 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE5EA825E12C5C004CB788 /* ContentView.swift */; };
@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0E5164F625E1413900618280 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		0E5164F625E1413900618280 /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
 		0E5164F925E142B000618280 /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
 		0ECE5EA325E12C5C004CB788 /* SongBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SongBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0ECE5EA625E12C5C004CB788 /* SongBrowserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBrowserApp.swift; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 			children = (
 				0ECE5EA825E12C5C004CB788 /* ContentView.swift */,
 				0ECE5ED625E1383A004CB788 /* SearchBarView.swift */,
-				0E5164F625E1413900618280 /* ListItem.swift */,
+				0E5164F625E1413900618280 /* ListItemView.swift */,
 				0E5164F925E142B000618280 /* SongView.swift */,
 			);
 			path = Views;
@@ -169,7 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E5164F725E1413900618280 /* ListItem.swift in Sources */,
+				0E5164F725E1413900618280 /* ListItemView.swift in Sources */,
 				0ECE5EDC25E13B17004CB788 /* Song.swift in Sources */,
 				0ECE5EA925E12C5C004CB788 /* ContentView.swift in Sources */,
 				0E5164FA25E142B000618280 /* SongView.swift in Sources */,
