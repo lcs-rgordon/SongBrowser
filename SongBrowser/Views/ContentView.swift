@@ -16,37 +16,45 @@ struct ContentView: View {
     // MARK: Computed properties
     var body: some View {
         
-        VStack {
-                
-            // Include a search bar to populate list below
-            SearchBarView(text: $searchText)
-                .padding(.top, 20)
-                .onChange(of: searchText) { _ in
-                    fetchResults()
-                }
+        NavigationView {
+            
+            VStack {
+                    
+                // Include a search bar to populate list below
+                SearchBarView(text: $searchText)
+                    .padding(.top, 20)
+                    .onChange(of: searchText) { _ in
+                        fetchResults()
+                    }
 
-            // Show a prompt when no search text is given
-            if searchText.isEmpty {
-                
-                Spacer()
-                
-                Text("Please enter an artist name")
-                    .font(.title)
-                    .foregroundColor(.secondary)
-                
-                Spacer()
-                
-            } else {
-                
-                List(songs, id: \.trackId) { currentSong in
+                // Show a prompt when no search text is given
+                if searchText.isEmpty {
                     
-                    ListItem(song: currentSong)
+                    Spacer()
+                    
+                    Text("Please enter an artist name")
+                        .font(.title)
+                        .foregroundColor(.secondary)
+                    
+                    Spacer()
+                    
+                } else {
+                    
+                    List(songs, id: \.trackId) { currentSong in
+                        
+                        NavigationLink(destination: SongView(song: currentSong)) {
+                            ListItem(song: currentSong)
+                        }
+                        
+                    }
                     
                 }
-                
+               
             }
-           
+            .navigationTitle("Song Browser")
+
         }
+        
     }
     
     // MARK: Functions
