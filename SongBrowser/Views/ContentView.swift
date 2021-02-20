@@ -40,14 +40,7 @@ struct ContentView: View {
                 
                 List(songs, id: \.trackId) { currentSong in
                     
-                    VStack(alignment: .leading) {
-                        
-                        Text(currentSong.trackName)
-                        
-                        Text(currentSong.artistName)
-                            .font(.caption)
-                        
-                    }
+                    ListItem(song: currentSong)
                     
                 }
                 
