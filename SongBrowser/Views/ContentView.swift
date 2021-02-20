@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
 
     // MARK: Stored properties
-    @State private var searchText: String = ""    
+    @State private var searchText: String = ""
     @State private var songs: [Song] = []
 
     // MARK: Computed properties
@@ -38,8 +38,18 @@ struct ContentView: View {
                 
             } else {
                 
-                // For now, show nothing when a search is active
-                Spacer()
+                List(songs, id: \.trackId) { currentSong in
+                    
+                    VStack(alignment: .leading) {
+                        
+                        Text(currentSong.trackName)
+                        
+                        Text(currentSong.artistName)
+                            .font(.caption)
+                        
+                    }
+                    
+                }
                 
             }
            
