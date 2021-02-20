@@ -59,14 +59,13 @@ struct SearchBarView: View {
             if isEditing {
                 Button(action: {
                     
-                    // Stop editing and clear the search text
+                    // Stop editing
                     isEditing = false
-                    text = ""
                     
                     // Dismiss the keyboard
                     UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                 }) {
-                    Text("Cancel")
+                    Text("Search")
                 }
                 .padding(.trailing, 10)
                 .padding(.bottom, -2)
