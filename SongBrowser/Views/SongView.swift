@@ -15,13 +15,24 @@ struct SongView: View {
         
         VStack(alignment: .leading) {
             
-            Text(song.trackName)
-                .font(.title)
-            
-            Text(song.artistName)
-                .font(.subheadline)
+            HStack {
+                
+                SongImageView(previewImageToShow: song.artworkUrl100)
+                
+                VStack(alignment: .leading) {
+                    
+                    Text(song.trackName)
+                        .font(.title)
+                    
+                    Text(song.artistName)
+                        .font(.subheadline)
+
+                }
+                
+            }
 
             AudioPlayerView(urlOfSongToPlay: song.previewUrl)
+                .padding(.top, 20)
 
             Spacer()
                 .frame(maxWidth: .infinity)
