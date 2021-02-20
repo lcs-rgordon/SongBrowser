@@ -11,6 +11,7 @@
 		0ECE5EA925E12C5C004CB788 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE5EA825E12C5C004CB788 /* ContentView.swift */; };
 		0ECE5EAB25E12C5F004CB788 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ECE5EAA25E12C5F004CB788 /* Assets.xcassets */; };
 		0ECE5EAE25E12C5F004CB788 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0ECE5EAD25E12C5F004CB788 /* Preview Assets.xcassets */; };
+		0ECE5ED725E1383A004CB788 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE5ED625E1383A004CB788 /* SearchBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		0ECE5EAA25E12C5F004CB788 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0ECE5EAD25E12C5F004CB788 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0ECE5EAF25E12C5F004CB788 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0ECE5ED625E1383A004CB788 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				0ECE5EA625E12C5C004CB788 /* SongBrowserApp.swift */,
 				0ECE5EA825E12C5C004CB788 /* ContentView.swift */,
+				0ECE5ED625E1383A004CB788 /* SearchBarView.swift */,
 				0ECE5EAA25E12C5F004CB788 /* Assets.xcassets */,
 				0ECE5EAF25E12C5F004CB788 /* Info.plist */,
 				0ECE5EAC25E12C5F004CB788 /* Preview Content */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ECE5EA925E12C5C004CB788 /* ContentView.swift in Sources */,
+				0ECE5ED725E1383A004CB788 /* SearchBarView.swift in Sources */,
 				0ECE5EA725E12C5C004CB788 /* SongBrowserApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
