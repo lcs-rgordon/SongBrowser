@@ -19,7 +19,7 @@ struct SongView: View {
     
     // A reference to the entire list of favourite songs
     @ObservedObject var store: SongStore
-
+    
     // MARK: Computed properties
     var body: some View {
         
@@ -75,13 +75,25 @@ struct SongView: View {
                         Text(inFavourites ? "Remove from\nFavourites" : "Add to\nFavourites")
                             .multilineTextAlignment(.center)
                     }
-
+                    
                 }
                 
                 Spacer()
-
+                
             }
             .padding(.top, 20)
+            
+            Text("Store Links")
+                .font(.title2)
+                .bold()
+                .padding(.top, 20)
+            
+            Link("View artist", destination: URL(string: song.artistViewUrl)!)
+                .padding(.top, 5)
+            
+            Link("View album", destination: URL(string: song.collectionViewUrl)!)
+                .padding(.top, 5)
+
             
             Spacer()
                 .frame(maxWidth: .infinity)
