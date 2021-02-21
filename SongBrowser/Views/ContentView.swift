@@ -16,6 +16,9 @@ struct ContentView: View {
     
     // Keeps the list of songs retrieved from Apple Music
     @State private var songs: [Song] = [] // empty array to start
+    
+    // Derived value; a reference to the list of favourite songs
+    @ObservedObject var store: SongStore
 
     // MARK: Computed properties
     var body: some View {
@@ -50,7 +53,7 @@ struct ContentView: View {
                     // to uniquely identify each song
                     List(songs, id: \.trackId) { currentSong in
                         
-                        NavigationLink(destination: SongView(song: currentSong, fromFavourites: false)) {
+                        NavigationLink(destination: SongView(song: currentSong, inFavourites: false, store: store)) {
                             ListItemView(song: currentSong)
                         }
                         
@@ -154,6 +157,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(store: testStore)
     }
 }

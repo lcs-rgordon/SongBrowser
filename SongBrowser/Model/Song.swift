@@ -24,4 +24,4 @@ let exampleSong = Song(trackId: 1440936016,
                        artworkUrl100: "https://is5-ssl.mzstatic.com/image/thumb/Music128/v4/9c/91/83/9c918303-e0a4-2d4b-97d6-f986b9fba604/source/100x100bb.jpg")
 
 // Track favourite songs
-let favouriteSongs: [Song] = []
+var favouriteSongs: [Song] = []
