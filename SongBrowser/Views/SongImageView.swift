@@ -10,6 +10,7 @@ import SwiftUI
 struct SongImageView: View {
     
     @State var image: UIImage = UIImage()
+    
     var previewImageToShow: String
     
     var body: some View {
@@ -21,6 +22,7 @@ struct SongImageView: View {
                 
                 // Load the remote image
                 image = UIImage(data: try! Data(contentsOf: url))!
+                
             }
     }
 }

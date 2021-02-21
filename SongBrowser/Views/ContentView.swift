@@ -10,8 +10,12 @@ import SwiftUI
 struct ContentView: View {
 
     // MARK: Stored properties
+    
+    // Keeps track of what the user searches for
     @State private var searchText: String = ""
-    @State private var songs: [Song] = []
+    
+    // Keeps the list of songs retrieved from Apple Music
+    @State private var songs: [Song] = [] // empty array to start
 
     // MARK: Computed properties
     var body: some View {
@@ -40,6 +44,10 @@ struct ContentView: View {
                     
                 } else {
                     
+                    // Search text was given, results obtained
+                    // Show the list of results
+                    // Keypath of \.trackId tells the List view what property to use
+                    // to uniquely identify each song
                     List(songs, id: \.trackId) { currentSong in
                         
                         NavigationLink(destination: SongView(song: currentSong)) {
@@ -61,6 +69,7 @@ struct ContentView: View {
     func fetchResults() {
         
         // Sanitize the search input
+        // Converts something like "TaYLoR SWiFt" to "taylor+swift"
         let input = searchText.lowercased().replacingOccurrences(of: " ", with: "+")
 
         // Set the address of the JSON endpoint
