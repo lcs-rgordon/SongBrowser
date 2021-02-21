@@ -11,7 +11,22 @@ import SwiftUI
 struct SongBrowserApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            
+            TabView {
+
+                ContentView()
+                    .tabItem {
+                        Image(systemName: "doc.text.magnifyingglass")
+                        Text("Search")
+                    }
+                
+                FavouritesView()
+                    .tabItem {
+                        Image(systemName: "suit.heart")
+                        Text("Favourites")
+                    }
+            }
+                        
         }
     }
 }
