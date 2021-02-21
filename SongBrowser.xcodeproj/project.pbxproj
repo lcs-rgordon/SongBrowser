@@ -20,6 +20,7 @@
 		0ECE5EDC25E13B17004CB788 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE5EDB25E13B17004CB788 /* Song.swift */; };
 		0ECE5EE025E13B1F004CB788 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECE5EDF25E13B1F004CB788 /* SearchResult.swift */; };
 		0ED1E64B25E299C5006C6581 /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED1E64A25E299C5006C6581 /* FavouritesView.swift */; };
+		0ED1E65025E29F5B006C6581 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED1E64F25E29F5B006C6581 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		0ECE5EDB25E13B17004CB788 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		0ECE5EDF25E13B1F004CB788 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		0ED1E64A25E299C5006C6581 /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
+		0ED1E64F25E29F5B006C6581 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				0ECE5EA625E12C5C004CB788 /* SongBrowserApp.swift */,
+				0ED1E64E25E29F4A006C6581 /* Extensions */,
 				0ECE5ED925E13AB2004CB788 /* Views */,
 				0ECE5EDA25E13ABF004CB788 /* Model */,
 				0ECE5EAA25E12C5F004CB788 /* Assets.xcassets */,
@@ -110,6 +113,14 @@
 				0ECE5EDB25E13B17004CB788 /* Song.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0ED1E64E25E29F4A006C6581 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0ED1E64F25E29F5B006C6581 /* Color.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +195,7 @@
 			files = (
 				0E51650425E14CB400618280 /* SongImageView.swift in Sources */,
 				0E5164F725E1413900618280 /* ListItemView.swift in Sources */,
+				0ED1E65025E29F5B006C6581 /* Color.swift in Sources */,
 				0ECE5EDC25E13B17004CB788 /* Song.swift in Sources */,
 				0E5164FE25E1480A00618280 /* AudioPlayerView.swift in Sources */,
 				0ECE5EA925E12C5C004CB788 /* ContentView.swift in Sources */,

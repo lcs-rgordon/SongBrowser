@@ -9,8 +9,11 @@ import SwiftUI
 
 struct SongView: View {
     
+    // MARK: Stored properties
     var song: Song
-    
+    var fromFavourites: Bool
+
+    // MARK: Computed properties
     var body: some View {
         
         VStack(alignment: .leading) {
@@ -26,14 +29,31 @@ struct SongView: View {
                     
                     Text(song.artistName)
                         .font(.subheadline)
-
+                    
                 }
                 
             }
-
+            
             AudioPlayerView(urlOfSongToPlay: song.previewUrl)
                 .padding(.top, 20)
+            
+            HStack {
+                Spacer()
 
+                VStack {
+                    Image(systemName: fromFavourites ? "suit.heart.fill" : "suit.heart")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundColor(.deepRed)
+                    Text(fromFavourites ? "Remove from\nFavourites" : "Add to\nFavourites")
+                        .multilineTextAlignment(.center)
+                }
+
+                Spacer()
+            }
+            .padding(.top, 20)
+            
             Spacer()
                 .frame(maxWidth: .infinity)
             
@@ -49,7 +69,7 @@ struct SongView: View {
 struct SongView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            SongView(song: exampleSong)
+            SongView(song: exampleSong, fromFavourites: false)
         }
     }
 }

@@ -22,7 +22,7 @@ struct SongBrowserApp: App {
                 
                 FavouritesView()
                     .tabItem {
-                        Image(systemName: "suit.heart")
+                        Image(systemName: "suit.heart.fill")
                         Text("Favourites")
                     }
             }

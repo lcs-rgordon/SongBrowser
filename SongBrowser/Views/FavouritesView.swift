@@ -14,7 +14,7 @@ struct FavouritesView: View {
         
         NavigationView {
             
-            Group {
+            VStack {
                 // Show message if no favourites noted
                 if favouriteSongs.isEmpty {
 
@@ -31,7 +31,7 @@ struct FavouritesView: View {
                     // Show list of favourite songs
                     List(favouriteSongs, id: \.trackId) { currentSong in
                         
-                        NavigationLink(destination: SongView(song: currentSong)) {
+                        NavigationLink(destination: SongView(song: currentSong, fromFavourites: true)) {
                             ListItemView(song: currentSong)
                         }
                         

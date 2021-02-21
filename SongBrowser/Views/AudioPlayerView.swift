@@ -26,7 +26,8 @@ struct AudioPlayerView: View {
                 Button(action: {
                     self.audioPlayer.play()
                 }) {
-                    Image(systemName: "play.circle.fill").resizable()
+                    Image(systemName: "play.circle.fill")
+                        .resizable()
                         .frame(width: 50, height: 50)
                         .aspectRatio(contentMode: .fit)
                 }
@@ -36,7 +37,8 @@ struct AudioPlayerView: View {
                 Button(action: {
                     self.audioPlayer.pause()
                 }) {
-                    Image(systemName: "pause.circle.fill").resizable()
+                    Image(systemName: "pause.circle.fill")
+                        .resizable()
                         .frame(width: 50, height: 50)
                         .aspectRatio(contentMode: .fit)
                 }

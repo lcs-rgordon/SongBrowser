@@ -50,7 +50,7 @@ struct ContentView: View {
                     // to uniquely identify each song
                     List(songs, id: \.trackId) { currentSong in
                         
-                        NavigationLink(destination: SongView(song: currentSong)) {
+                        NavigationLink(destination: SongView(song: currentSong, fromFavourites: false)) {
                             ListItemView(song: currentSong)
                         }
                         
