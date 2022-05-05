@@ -26,33 +26,50 @@ struct SearchView: View {
         
         NavigationView {
             
-            VStack {
-                
-                // Search text was given, results obtained
-                // Show the list of results
-                // Keypath of \.trackId tells the List view what property to use
-                // to uniquely identify each song
-                List(foundSongs, id: \.trackId) { currentSong in
+            ZStack {
+
+                VStack {
                     
-                    NavigationLink(destination: SongDetailView(song: currentSong, inFavourites: false, favourites: $favourites)) {
-                        ListItemView(song: currentSong)
+                    // Search text was given, results obtained
+                    // Show the list of results
+                    // Keypath of \.trackId tells the List view what property to use
+                    // to uniquely identify each song
+                    List(foundSongs, id: \.trackId) { currentSong in
+                        
+                        NavigationLink(destination: SongDetailView(song: currentSong, inFavourites: false, favourites: $favourites)) {
+                            ListItemView(song: currentSong)
+                        }
+                        
                     }
-                    
-                }
-                .searchable(text: $searchText)
-                .onChange(of: searchText) { whatWasTyped in
-                    
-                    // When what is typed in the search field changes,
-                    // get new results from the endpoint
-                    Task {
-                        await fetchResults()
+                    .searchable(text: $searchText)
+                    .onChange(of: searchText) { whatWasTyped in
+                        
+                        // When what is typed in the search field changes,
+                        // get new results from the endpoint
+                        Task {
+                            await fetchResults()
+                        }
+
                     }
 
+                    
                 }
+                .navigationTitle("Song Browser")
 
+                // Show a prompt when there are no results yet
+                VStack {
+                    Spacer()
+                    
+                    Text("Enter a song or artist name")
+                        .font(.title)
+                        .foregroundColor(.secondary)
+                    
+                    Spacer()
+                }
+                .opacity(searchText.isEmpty ? 1.0 : 0.0)
                 
             }
-            .navigationTitle("Song Browser")
+            
             
         }
         
