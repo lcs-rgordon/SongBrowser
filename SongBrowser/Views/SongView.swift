@@ -42,47 +42,18 @@ struct SongView: View {
                 
             }
             
-            AudioPlayerView(urlOfSongToPlay: song.previewUrl)
-                .padding(.top, 20)
-            
             HStack {
+                
+                AudioPlayerView(urlOfSongToPlay: song.previewUrl)
+
                 Spacer()
-                
-                Button(action: {
-                    
-                    // When not already in the list of favourites, add this song
-                    if !inFavourites {
-                        
-                        favourites.append(song)
-                        inFavourites = true
-                        
-                    } else {
-                        
-                        // Find where this song is in the list of songs, then remove it
-                        favourites.removeAll(where: { theSong in
-                            theSong.trackId == song.trackId
-                        })
-                        inFavourites = false
-                    }
-                    
-                }) {
-                    
-                    VStack {
-                        Image(systemName: inFavourites ? "suit.heart.fill" : "suit.heart")
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                            .aspectRatio(contentMode: .fit)
-                            .foregroundColor(Color("deepRed"))
-                        Text(inFavourites ? "Remove from\nFavourites" : "Add to\nFavourites")
-                            .multilineTextAlignment(.center)
-                    }
-                    
-                }
-                
-                Spacer()
-                
+
+                FavouritesButtonView(song: song,
+                                     inFavourites: $inFavourites,
+                                     favourites: $favourites)
             }
             .padding(.top, 20)
+            .padding(.horizontal, 5)
             
             Text("Store Links")
                 .font(.title2)
