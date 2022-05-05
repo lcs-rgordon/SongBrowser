@@ -36,7 +36,7 @@ struct FavouritesView: View {
                     // Show list of favourite songs
                     List(favourites, id: \.trackId) { currentSong in
                         
-                        NavigationLink(destination: SongView(song: currentSong, inFavourites: true, favourites: $favourites)) {
+                        NavigationLink(destination: SongDetailView(song: currentSong, inFavourites: true, favourites: $favourites)) {
                             ListItemView(song: currentSong)
                         }
                         

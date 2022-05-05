@@ -1,5 +1,5 @@
 //
-//  SongView.swift
+//  SongDetailView.swift
 //  SongBrowser
 //
 //  Created by Russell Gordon on 2021-02-20.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SongView: View {
+struct SongDetailView: View {
     
     // MARK: Stored properties
     
@@ -79,10 +79,10 @@ struct SongView: View {
     
 }
 
-struct SongView_Previews: PreviewProvider {
+struct SongDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            SongView(song: testSong,
+            SongDetailView(song: testSong,
                      inFavourites: false,
                      favourites: .constant([]))
         }

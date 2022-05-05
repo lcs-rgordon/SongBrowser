@@ -54,7 +54,7 @@ struct SearchView: View {
                     // to uniquely identify each song
                     List(foundSongs, id: \.trackId) { currentSong in
                         
-                        NavigationLink(destination: SongView(song: currentSong, inFavourites: false, favourites: $favourites)) {
+                        NavigationLink(destination: SongDetailView(song: currentSong, inFavourites: false, favourites: $favourites)) {
                             ListItemView(song: currentSong)
                         }
                         
