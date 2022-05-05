@@ -39,7 +39,7 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    Text("Please enter an artist name")
+                    Text("Enter a song or artist name")
                         .font(.title)
                         .foregroundColor(.secondary)
                     
