@@ -28,7 +28,7 @@ struct SongDetailView: View {
             
             HStack {
                 
-                SongImageView(previewImageToShow: song.artworkUrl100)
+                RemoteImageView(fromURL: URL(string: song.artworkUrl100)!)
                 
                 VStack(alignment: .leading) {
                     
