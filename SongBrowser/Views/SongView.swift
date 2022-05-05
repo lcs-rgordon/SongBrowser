@@ -71,7 +71,7 @@ struct SongView: View {
                             .resizable()
                             .frame(width: 40, height: 40)
                             .aspectRatio(contentMode: .fit)
-                            .foregroundColor(.deepRed)
+                            .foregroundColor(Color("deepRed"))
                         Text(inFavourites ? "Remove from\nFavourites" : "Add to\nFavourites")
                             .multilineTextAlignment(.center)
                     }
