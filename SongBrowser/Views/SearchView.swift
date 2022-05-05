@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
-
+    
     // MARK: Stored properties
     
     // Keeps track of what the user searches for
@@ -20,57 +20,40 @@ struct SearchView: View {
     // Derived value; a reference to the list of favourite songs
     // The source of truth (original instance) is at the app level
     @Binding var favourites: [Song]
-
+    
     // MARK: Computed properties
     var body: some View {
         
         NavigationView {
             
             VStack {
+                
+                // Search text was given, results obtained
+                // Show the list of results
+                // Keypath of \.trackId tells the List view what property to use
+                // to uniquely identify each song
+                List(foundSongs, id: \.trackId) { currentSong in
                     
-                // Include a search bar to populate list below
-                SearchBarView(text: $searchText)
-                    .padding(.top, 20)
-                    .onChange(of: searchText) { _ in
-                        
-                        // When what is typed in the search field changes,
-                        // get new results from the endpoint
-                        Task {
-                            await fetchResults()
-                        }
-
-                    }
-
-                // Show a prompt when no search text is given
-                if searchText.isEmpty {
-                    
-                    Spacer()
-                    
-                    Text("Enter a song or artist name")
-                        .font(.title)
-                        .foregroundColor(.secondary)
-                    
-                    Spacer()
-                    
-                } else {
-                    
-                    // Search text was given, results obtained
-                    // Show the list of results
-                    // Keypath of \.trackId tells the List view what property to use
-                    // to uniquely identify each song
-                    List(foundSongs, id: \.trackId) { currentSong in
-                        
-                        NavigationLink(destination: SongDetailView(song: currentSong, inFavourites: false, favourites: $favourites)) {
-                            ListItemView(song: currentSong)
-                        }
-                        
+                    NavigationLink(destination: SongDetailView(song: currentSong, inFavourites: false, favourites: $favourites)) {
+                        ListItemView(song: currentSong)
                     }
                     
                 }
-               
+                .searchable(text: $searchText)
+                .onChange(of: searchText) { whatWasTyped in
+                    
+                    // When what is typed in the search field changes,
+                    // get new results from the endpoint
+                    Task {
+                        await fetchResults()
+                    }
+
+                }
+
+                
             }
             .navigationTitle("Song Browser")
-
+            
         }
         
     }
@@ -81,12 +64,12 @@ struct SearchView: View {
         // Sanitize the search input
         // Converts something like "TaYLoR SWiFt" to "taylor+swift"
         let input = searchText.lowercased().replacingOccurrences(of: " ", with: "+")
-
+        
         // Set the address of the JSON endpoint
         // For more deatils, see:
         // https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/
         let url = URL(string: "https://itunes.apple.com/search?term=\(input)&entity=song")!
-
+        
         // Configure a URLRequest instance
         // Defines what type of request will be sent to the address noted above
         var request = URLRequest(url: url)
@@ -96,7 +79,7 @@ struct SearchView: View {
         
         // Start a URL session to interact with the endpoint
         let urlSession = URLSession.shared
-
+        
         // Fetch the results of this search
         do {
             // Get the raw data from the endpoint
@@ -104,7 +87,7 @@ struct SearchView: View {
             
             // DEBUG: See what raw JSON data was returned from the server
             print(String(data: data, encoding: .utf8)!)
-
+            
             // Attempt to decode and return the object containing
             // the search result
             // NOTE: We decode to SearchResult.self since the endpoint
@@ -122,7 +105,7 @@ struct SearchView: View {
             print(error)
             
         }
-
+        
     }
     
 }
