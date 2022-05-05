@@ -1,6 +1,5 @@
 //
 //  SearchBarView.swift
-//  SwiftUI-Chicago-HSE-LCS
 //
 //  Created by Russell Gordon on 2021-02-14.
 //  Copyright © 2021 Gordon, Russell. All rights reserved.
