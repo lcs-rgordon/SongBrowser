@@ -9,8 +9,10 @@ import SwiftUI
 
 struct ListItemView: View {
     
+    // MARK: Stored properties
     var song: Song
     
+    // MARK: Computed properties
     var body: some View {
 
         VStack(alignment: .leading) {
