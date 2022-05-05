@@ -13,20 +13,20 @@ struct SongBrowserApp: App {
     // MARK: Stored properties
     
     // Source of truth for the list of favourite songs
-    @StateObject var store = SongStore()
+    @State var favourites: [Song] = []
     
     var body: some Scene {
         WindowGroup {
             
             TabView {
 
-                ContentView(store: store)
+                ContentView(favourites: $favourites)
                     .tabItem {
                         Image(systemName: "doc.text.magnifyingglass")
                         Text("Search")
                     }
                 
-                FavouritesView(store: store)
+                FavouritesView(favourites: $favourites)
                     .tabItem {
                         Image(systemName: "suit.heart.fill")
                         Text("Favourites")

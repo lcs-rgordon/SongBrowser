@@ -12,13 +12,14 @@ struct ContentView: View {
     // MARK: Stored properties
     
     // Keeps track of what the user searches for
-    @State private var searchText: String = ""
+    @State var searchText: String = ""
     
     // Keeps the list of songs retrieved from Apple Music
-    @State private var songs: [Song] = [] // empty array to start
+    @State var foundSongs: [Song] = [] // empty array to start
     
     // Derived value; a reference to the list of favourite songs
-    @ObservedObject var store: SongStore
+    // The source of truth (original instance) is at the app level
+    @Binding var favourites: [Song]
 
     // MARK: Computed properties
     var body: some View {
@@ -51,9 +52,9 @@ struct ContentView: View {
                     // Show the list of results
                     // Keypath of \.trackId tells the List view what property to use
                     // to uniquely identify each song
-                    List(songs, id: \.trackId) { currentSong in
+                    List(foundSongs, id: \.trackId) { currentSong in
                         
-                        NavigationLink(destination: SongView(song: currentSong, inFavourites: false, store: store)) {
+                        NavigationLink(destination: SongView(song: currentSong, inFavourites: false, favourites: $favourites)) {
                             ListItemView(song: currentSong)
                         }
                         
@@ -136,7 +137,7 @@ struct ContentView: View {
                 DispatchQueue.main.async {
 
                     // Assign the result to the "songs" stored property
-                    songs = decodedResultsData.results
+                    foundSongs = decodedResultsData.results
 
                 }
 
@@ -157,6 +158,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(store: testStore)
+        ContentView(favourites: .constant([testSong]))
     }
 }

@@ -29,6 +29,6 @@ struct SongImageView: View {
 
 struct SongImageView_Previews: PreviewProvider {
     static var previews: some View {
-        SongImageView(previewImageToShow: exampleSong.artworkUrl100)
+        SongImageView(previewImageToShow: testSong.artworkUrl100)
     }
 }

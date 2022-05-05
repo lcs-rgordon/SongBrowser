@@ -12,7 +12,7 @@ struct FavouritesView: View {
     // MARK: Stored properties
     
     // Derived value; a reference to the list of favourite songs
-    @ObservedObject var store: SongStore
+    @Binding var favourites: [Song]
     
     // MARK: Computed properties
     var body: some View {
@@ -21,7 +21,7 @@ struct FavouritesView: View {
             
             VStack {
                 // Show message if no favourites noted
-                if store.favourites.isEmpty {
+                if favourites.isEmpty {
 
                     Spacer()
                     
@@ -34,9 +34,9 @@ struct FavouritesView: View {
                 } else {
 
                     // Show list of favourite songs
-                    List(store.favourites, id: \.trackId) { currentSong in
+                    List(favourites, id: \.trackId) { currentSong in
                         
-                        NavigationLink(destination: SongView(song: currentSong, inFavourites: true, store: store)) {
+                        NavigationLink(destination: SongView(song: currentSong, inFavourites: true, favourites: $favourites)) {
                             ListItemView(song: currentSong)
                         }
                         
@@ -53,6 +53,6 @@ struct FavouritesView: View {
 
 struct FavouritesView_Previews: PreviewProvider {
     static var previews: some View {
-        FavouritesView(store: testStore)
+        FavouritesView(favourites: .constant([testSong]))
     }
 }

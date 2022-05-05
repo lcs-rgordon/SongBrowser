@@ -17,8 +17,9 @@ struct SongView: View {
     // Whether this song is in the Favourites list or not
     @State var inFavourites: Bool
     
-    // A reference to the entire list of favourite songs
-    @ObservedObject var store: SongStore
+    // A reference to the list of favourite songs
+    // This is a derived value; source of truth is at the app level
+    @Binding var favourites: [Song]
     
     // MARK: Computed properties
     var body: some View {
@@ -52,13 +53,13 @@ struct SongView: View {
                     // When not already in the list of favourites, add this song
                     if !inFavourites {
                         
-                        store.favourites.append(song)
+                        favourites.append(song)
                         inFavourites = true
                         
                     } else {
                         
                         // Find where this song is in the list of songs, then remove it
-                        store.favourites.removeAll(where: { theSong in
+                        favourites.removeAll(where: { theSong in
                             theSong.trackId == song.trackId
                         })
                         inFavourites = false
@@ -110,7 +111,9 @@ struct SongView: View {
 struct SongView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            SongView(song: exampleSong, inFavourites: false, store: testStore)
+            SongView(song: testSong,
+                     inFavourites: false,
+                     favourites: .constant([]))
         }
     }
 }

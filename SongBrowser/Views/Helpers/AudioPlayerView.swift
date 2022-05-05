@@ -8,13 +8,15 @@
 import AVKit
 import SwiftUI
 
-// SOURCE: https://medium.com/swift-productions/swiftui-play-an-audio-with-avaudioplayer-1c4085e2052c
+// ADAPTED FROM SOURCE: https://medium.com/swift-productions/swiftui-play-an-audio-with-avaudioplayer-1c4085e2052c
 
 struct AudioPlayerView: View {
     
+    // MARK: Stored properties
     @State var audioPlayer: AVPlayer = AVPlayer()
     var urlOfSongToPlay: String
     
+    // MARK: Stored properties
     var body: some View {
         
         VStack {
@@ -71,6 +73,6 @@ struct AudioPlayerView: View {
 
 struct AudioPlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        AudioPlayerView(urlOfSongToPlay: exampleSong.previewUrl)
+        AudioPlayerView(urlOfSongToPlay: testSong.previewUrl)
     }
 }
