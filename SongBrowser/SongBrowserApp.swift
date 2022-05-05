@@ -20,7 +20,7 @@ struct SongBrowserApp: App {
             
             TabView {
 
-                ContentView(favourites: $favourites)
+                SearchView(favourites: $favourites)
                     .tabItem {
                         Image(systemName: "doc.text.magnifyingglass")
                         Text("Search")

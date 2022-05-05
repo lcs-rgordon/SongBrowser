@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  SearchView.swift
 //  SongBrowser
 //
 //  Created by Russell Gordon on 2021-02-20.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct SearchView: View {
 
     // MARK: Stored properties
     
@@ -156,8 +156,8 @@ struct ContentView: View {
     
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(favourites: .constant([testSong]))
+        SearchView(favourites: .constant([testSong]))
     }
 }
